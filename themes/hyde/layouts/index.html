@@ -1,0 +1,72 @@
+{{ define "main" -}}
+<div class="posts">
+  <!-- <div class="whitespace">
+    <div class="banner-image">
+      <img src="" />
+    </div>
+    <div class="banner-text">
+      <p>
+        Firefly is...
+      </p>
+    </div>
+    <div class="banner-buttons">
+      <a href="/#case_study" class="button">Read the case study</a>
+      <a href="/#presentation" class="button">View presentation</a>
+    </div>
+  </div> -->
+
+  {{ range .Site.RegularPages -}}
+
+  <article class="post">
+    <div class="post">
+      {{ .Content }}
+      <div id="team">
+        <p>
+          Firefly was built by a remote team of software engineers. We are currently
+          looking for opportunities, so please feel free to reach out if you have any questions
+          or are looking to fill a role on your team.
+        </p>
+        <ul class="team-members">
+          <li class="individual">
+            <a href="" target="_blank"><img class="portrait" src="/assets/github.png" alt="Julia Park"></a>
+            <h3>Julia<br>Park</h3>
+            <p>Toronto</p>
+            <div class="icon-bar">
+              <a href="" target="_blank"><img class="icon" src="/assets/linkedin.svg" alt="LinkedIn icon"></a>
+              <a href="" target="_blank"><img class="icon" src="/assets/github.svg" alt="Github icon"></a>
+            </div>
+          </li>
+          <li class="individual">
+            <a href="" target="_blank"><img class="portrait" src="/assets/github.png" alt="Julia Park"></a>
+            <h3>Marcus<br>Sinkinson</h3>
+            <p>Amsterdam</p>
+            <div class="icon-bar">
+              <a href="" target="_blank"><img class="icon" src="/assets/linkedin.svg" alt="LinkedIn icon"></a>
+              <a href="" target="_blank"><img class="icon" src="/assets/github.svg" alt="Github icon"></a>
+            </div>
+          </li>
+          <li class="individual">
+            <a href="" target="_blank"><img class="portrait" src="/assets/github.png" alt="Julia Park"></a>
+            <h3>Carolina<br>Avila</h3>
+            <p>New York</p>
+            <div class="icon-bar">
+              <a href="" target="_blank"><img class="icon" src="/assets/linkedin.svg" alt="LinkedIn icon"></a>
+              <a href="" target="_blank"><img class="icon" src="/assets/github.svg" alt="Github icon"></a>
+            </div>
+          </li>
+          <li class="individual">
+            <a href="" target="_blank"><img class="portrait" src="/assets/github.png" alt="Julia Park"></a>
+            <h3>Will<br>Yennie</h3>
+            <p>New York</p>
+            <div class="icon-bar">
+              <a href="" target="_blank"><img class="icon" src="/assets/linkedin.svg" alt="LinkedIn icon"></a>
+              <a href="" target="_blank"><img class="icon" src="/assets/github.svg" alt="Github icon"></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+  {{- end }}
+</div>
+{{- end }}

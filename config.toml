@@ -1,0 +1,9 @@
+baseURL = 'https://try-firefly.github.io'
+languageCode = 'en-us'
+title = 'Firefly'
+theme = 'hyde'
+
+[params]
+  description = 'Firefly is an observability framework for serverless functions'
+  themeColor = "theme-base-0g"
+  favicon = "img/favicon.png"

@@ -1,0 +1,41 @@
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="{{ .Site.BaseURL }}"><img class="firefly-icon" src="/assets/firefly-icon.png" alt="firefly icon"></a>
+      <!-- <img src="/apple-touch-icon-144-precomposed.png" /> -->
+      <!-- <a href="{{ .Site.BaseURL }}"><h1>{{ .Site.Title }}</h1></a> -->
+      <p class="lead">
+        <!-- {{ with .Site.Params.description }} {{.}} {{ else }}An elegant open
+        source and mobile first theme for
+        <a href="http://hugo.spf13.com">hugo</a> made by
+        <a href="http://twitter.com/mdo">@mdo</a>. Originally made for
+        Jekyll.{{end}} -->
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <!-- <li><a href="{{ .Site.BaseURL }}">Home</a></li> -->
+        <li><a href="/#introduction">Introduction</a></li>
+        <li><a href="/#microservices_and_serverless">Microservices & Serverless</a></li>
+        <li><a href="/#what_is_observability">What is Observability</a></li>
+        <li><a href="/#observability_for_serverless_functions">Observing Serverless Functions</a></li>
+        <li><a href="/#existing_solutions">Existing Solutions</a></li>
+        <li><a href="/#introducing_firefly">Introducing Firefly</a></li>
+        <li><a href="/#architecture">Architecture</a></li>
+        <li><a href="/#challenges_and_tradeoffs">Challenges & Tradeoffs</a></li>
+        <li><a href="/#future_work">Future Work</a></li>
+        <li><a href="/#references">References</a></li>
+        <li><a href="/#team">Team</a></li>
+        <!-- {{ range .Site.Menus.main -}}
+        <li><a href="{{.URL}}"> {{ .Name }} </a></li>
+        {{- end }} -->
+      </ul>
+    </nav>
+
+    <!-- <p>
+      {{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format
+      "2006"}}. All rights reserved. {{end}}
+    </p> -->
+  </div>
+</aside>
