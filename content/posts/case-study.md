@@ -100,8 +100,8 @@ Observing serverless functions is essential if we want to get an overall picture
 
 Due to the ubiquity of serverless functions in distributed architectures, observing them is necessary if we are to have an accurate idea of how an entire system is performing. Failing to do so would make distributed traces lose context, function errors go undetected, and key metrics remain unseen.  Ultimately, this would make tracking down issues harder and lead to false positives for issues in downstream services.
 
-{{< figure src="/assets/complete-observability.png" caption="Figure 4.1 Complete observability" >}}
-{{< figure src="/assets/partial-observability.png" caption="Figure 4.2 Partial observability" >}}
+{{< figure src="/assets/complete-observability.png" caption="Figure 4.1 Complete observability. When an issue occurs, the error can be identified in function 2." >}}
+{{< figure src="/assets/partial-observability.png" caption="Figure 4.2 Partial observability. When an issue occurs, it is hard to track down the source of the error as we have no insight into Service A." >}}
 
 ### 4.2 Why is it challenging?
 
@@ -154,27 +154,27 @@ Firefly’s setup involves two main components:
 1. Deployment of the backend infrastructure via Docker to a host of your choice
 2. Automated instrumentation through a command line interface.
 
-SETUP GIFs TO GO HERE
+See our [GitHub page](https://github.com/try-firefly) for more information.
 
 ### Usage
 
-MAIN DASHBOARD TO GO HERE
+{{< figure src="/assets/main-dashboard.png" caption="Figure 6.1 Main dashboard" >}}
 
 Upon loading Grafana you will be greeted with Firefly's main dashboard. This provides a general overview of all your serverless functions through highlighting key metrics such as invocations, errors and duration.
 
-INDIVIDUAL DASHBOARD TO GO HERE
+{{< figure src="/assets/function-dashboard.png" caption="Figure 6.2 Function dashboard" >}}
 
 Clicking on an individual function will lead you to Firefly's function dashboard. This allows you to dive into a specific function’s metrics and traces in much greater depth.
 
-SHOW HOW METRICS AND TRACES ARE LINKED
+{{< figure src="/assets/function-traces.png" caption="Figure 6.3 Function traces" >}}
 
 Scrolling down the dashboard you will be able to see traces for individual invocations and any associated errors.
 
-SHOW TRACE VIEW
+{{< figure src="/assets/trace-view.png" caption="Figure 6.4 Trace view" >}}
 
 Clicking on an individual trace will take you to the trace view, where you can further inspect each span and see the entire request lifecycle.
 
-SHOW CLICKING ON SPAN WITH ERROR
+{{< figure src="/assets/span-error.png" caption="Figure 6.5 Span error" >}}
 
 Clicking on a span will show detailed information about that particular point in the request’s journey, enabling you to diagnose potential errors with greater ease.
 
@@ -226,7 +226,7 @@ AWS Lambda Layers are used to deploy the wrapper and middleware to users’ Lamb
 
 When a Lambda function is sent an event, the request first traverses through the code deployed by the layers. The applied code allows spans to be emitted from the function to the backend in OpenTelemetry format. It also ensures context propagation, which allows multiple spans to share the same context. This is later used to correlate the spans into complete traces.
 
-{{< figure src="/assets/lambda-layers-plus-event.png" caption="Figure 7.5 Lambda layers receiving event" >}}
+{{< figure src="/assets/lambda-layers-event.png" caption="Figure 7.5 Lambda layers receiving event" >}}
 
 #### Metrics
 
@@ -365,17 +365,17 @@ Firefly currently works well for AWS Lambda functions using Node.js, we do howev
 
 ## 10. References {#references}
 
-https://martinfowler.com/articles/microservices.html
-https://about.gitlab.com/topics/serverless/
-https://www.sumologic.com/blog/microservices-vs-serverless-architecture/
-https://about.gitlab.com/topics/serverless/
-https://www.datadoghq.com/knowledge-center/serverless-architecture/serverless-microservices/
-https://stackify.com/telemetry-tutorial/
-https://mediatemple.net/blog/cloud-hosting/serverless-benefits-and-challenges/
-https://www.oreilly.com/library/view/what-is-serverless/9781491984178/ch04.html
-https://opentelemetry.io/docs/concepts/what-is-opentelemetry/
-https://www.timescale.com/blog/timescaledb-vs-amazon-timestream-6000x-higher-inserts-175x-faster-queries-220x-cheaper/
-https://docs.victoriametrics.com/FAQ.html
+* https://martinfowler.com/articles/microservices.html
+* https://about.gitlab.com/topics/serverless/
+* https://www.sumologic.com/blog/microservices-vs-serverless-architecture/
+* https://about.gitlab.com/topics/serverless/
+* https://www.datadoghq.com/knowledge-center/serverless-architecture/serverless-microservices/
+* https://stackify.com/telemetry-tutorial/
+* https://mediatemple.net/blog/cloud-hosting/serverless-benefits-and-challenges/
+* https://www.oreilly.com/library/view/what-is-serverless/9781491984178/ch04.html
+* https://opentelemetry.io/docs/concepts/what-is-opentelemetry/
+* https://www.timescale.com/blog/timescaledb-vs-amazon-timestream-6000x-higher-inserts-175x-faster-queries-220x-cheaper/
+* https://docs.victoriametrics.com/FAQ.html
 
 ---
 
