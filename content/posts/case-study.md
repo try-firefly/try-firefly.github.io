@@ -1,5 +1,5 @@
 ---
-title: 'Firefly case study'
+title: "Firefly case study"
 date: 2022-04-18T17:12:09-07:00
 draft: true
 ---
@@ -20,13 +20,13 @@ Serverless functions have become a key part of distributed architectures. Unfort
 
 ### 2.1 Microservices
 
-The ability to build a microservice architecture has become more attainable with the rise of cloud compute–due to the abstraction of deployment and management of physical infrastructure away from the end-user–offering an alternative to monolith architectures. **Microservices** are now commonplace and represent a distributed architectural approach in which a single application is composed of a number of loosely coupled, independently deployable and scalable services. Each service has a clearly defined role, executes its own processes, and often communicates via an API. [1]
+The ability to build a microservice architecture has become more attainable with the rise of cloud compute–due to the abstraction of deployment and management of physical infrastructure away from the end-user–offering an alternative to monolith architectures. **Microservices** are now commonplace and represent a distributed architectural approach in which a single application is composed of a number of loosely coupled, independently deployable and scalable services. Each service has a clearly defined role, executes its own processes, and often communicates via an API. <sup>[1](#ref_1)</sup>
 
 {{< figure src="/assets/microservice-architecture.png" alt="Figure 2.1 Mircoservice architecture" caption="Figure 2.1 Mircoservice architecture" >}}
 
 ### 2.2 Serverless
 
-**Serverless** is a development approach that allows for applications to be created and deployed without worrying about the underlying infrastructure of the system [2]. In this model, the control in provisioning, maintaining, and scaling the server is typically handed off to a third-party cloud provider for a fee. Developers only have to provide application code which will be packaged and deployed by the third-party provider.
+**Serverless** is a development approach that allows for applications to be created and deployed without worrying about the underlying infrastructure of the system<sup>[2](#ref_2)</sup>. In this model, the control in provisioning, maintaining, and scaling the server is typically handed off to a third-party cloud provider for a fee. Developers only have to provide application code which will be packaged and deployed by the third-party provider.
 
 A microservices architecture can be composed of services deployed on their own servers, as well as services which are serverless. Serverless microservices are often built with one or more **serverless functions**–small pieces of code designed to be asynchronously triggered based on events.
 
@@ -34,7 +34,7 @@ A microservices architecture can be composed of services deployed on their own s
 
 ### 2.3 Functions-as-a-Service
 
-**Functions-as-a-Service (FaaS)** describe the cloud-based service that hosts and manages serverless functions. To deploy a serverless function to a FaaS provider, a developer writes code that fulfills a particular purpose in the application and defines an event that will trigger the function[3]. Once the event is triggered, the service provider starts a new instance of the function, work is performed, and the result is returned.
+**Functions-as-a-Service (FaaS)** describe the cloud-based service that hosts and manages serverless functions. To deploy a serverless function to a FaaS provider, a developer writes code that fulfills a particular purpose in the application and defines an event that will trigger the function<sup>[3](#ref_3)</sup>. Once the event is triggered, the service provider starts a new instance of the function, work is performed, and the result is returned.
 
 {{< figure src="/assets/faas-system.png" alt="Figure 2.3 FaaS system" caption="Figure 2.3 FaaS system" >}}
 
@@ -58,7 +58,7 @@ Unfortunately, the inability to access or modify the cloud provider’s environm
 
 ### 3.1 Observability Overview
 
-> “[**Observability** is the] measure of how well you can understand and explain any state your application can get into, no matter how novel, or bizarre.” - Majors et al., Observability Engineering [4]
+> “[**Observability** is the] measure of how well you can understand and explain any state your application can get into, no matter how novel, or bizarre.” - Majors et al., Observability Engineering<sup>[4](#ref_4)</sup>
 
 A software system—when reduced to its most basic purpose—should take an input, perform some form of computation and produce an output. Observability is concerned with the data generated during this process. Using this data, we are able to gain a better understanding of the internal state of the system from the outside. Tracking down potential issues and onboarding new engineers becomes easier the more observable a system is.
 
@@ -88,13 +88,13 @@ Here we see the components that make up the system, but we aren’t able to see 
 
 {{< figure src="/assets/distributed-trace.png" alt="Figure 3.5 Distributed trace" caption="Figure 3.5 Distributed trace" >}}
 
-The above displays a trace in its entirety. Each component is referred to as a span. A **span** represents a unit of work and the time taken to complete that work. The first span in a trace is the **root span**–it generally represents a request from start to finish. So in this case the root span is the web application. The spans underneath are **child spans**; each child represents a unit of work within that request’s journey. 
+The above displays a trace in its entirety. Each component is referred to as a span. A **span** represents a unit of work and the time taken to complete that work. The first span in a trace is the **root span**–it generally represents a request from start to finish. So in this case the root span is the web application. The spans underneath are **child spans**; each child represents a unit of work within that request’s journey.
 
 By combining each service's span into a distributed trace we are able to see the request's progression through the system. The request flow for the above trace is as follows:
 
-* `Web Application` calls service `A`
-* Service `A` calls service `B` and waits for a response
-* Service `A` calls service `C` and `D`
+- `Web Application` calls service `A`
+- Service `A` calls service `B` and waits for a response
+- Service `A` calls service `C` and `D`
 
 In order for spans to become a distributed trace, certain metadata representing a shared state (**context**) needs to be passed at each part of the request execution. This can then be used to correlate the spans into a single trace. This mechanism is known as **context propagation**. Requests carry this information throughout their lifecycle, allowing each generated span to have access to the shared context. Context propagation is what makes distributed tracing possible across a distributed system.
 
@@ -116,7 +116,7 @@ Due to the ubiquity of serverless functions in distributed architectures, increa
 
 ### 4.2 Why is it Challenging?
 
-While the case for serverless function observability seems clear, their unique nature makes increasing observability via tried-and-true approaches challenging [5] [6] [7].
+While the case for serverless function observability seems clear, their unique nature makes increasing observability via tried-and-true approaches challenging<sup>[5](#ref_5), [6](#ref_6), [7](#ref_7)</sup>.
 
 Many current solutions for adding observability to services use agents to collect and emit telemetry data. Agents are processes which run independently of the service but within the same environment. It collects and temporarily stores telemetry data generated by the service and its environment, emitting it to the observability system.
 
@@ -134,16 +134,17 @@ On the other hand, the events which invoke the functions must carry context in a
 ## 5. Existing Solutions {#existing_solutions}
 
 Developers wishing to increase observability of their serverless functions typically have three main options:
-* Software-as-a-Service solutions
-* In-house, vendor-specific solution from FaaS provider
-  * We will be discussing specifically AWS CloudWatch as Firefly currently [only supports AWS Lambdas](#firefly_focus).
-* Do-it-yourself (DIY)
+
+- Software-as-a-Service solutions
+- In-house, vendor-specific solution from FaaS provider
+  - We will be discussing specifically AWS CloudWatch as Firefly currently [only supports AWS Lambdas](#firefly_focus).
+- Do-it-yourself (DIY)
 
 ### 5.1 Software-as-a-Service
 
 Software-as-a-service (SaaS) solutions usually require minimal setup to use. Once you have an account they will generally provide code and processes to manually instrument your functions or set up auto-instrumentation. These vendors normally have an extensive feature set, encompassed in a central UI, that goes well beyond serverless functions. They will also manage the data pipeline, so scaling for increased load does not have to be taken into account.
 
-While these vendors provide many benefits to their users, there are some downsides. The first is cost, which may have a greater impact for smaller companies and projects. The lack of visibility and transparency in their pricing can give observability platforms unpredictable and large costs [8]; sometimes stretching up to 50% of your total infrastructure costs [9]. Another downside is the loss of data control and ownership, as it is all sent to a third party–a deal breaker for businesses that place importance on data privacy and vendor flexibility.
+While these vendors provide many benefits to their users, there are some downsides. The first is cost, which may have a greater impact for smaller companies and projects. The lack of visibility and transparency in their pricing can give observability platforms unpredictable and large costs<sup>[8](#ref_8)</sup>; sometimes stretching up to 50% of your total infrastructure costs<sup>[9](#ref_9)</sup>. Another downside is the loss of data control and ownership, as it is all sent to a third party–a deal breaker for businesses that place importance on data privacy and vendor flexibility.
 
 ### 5.2 In-House Vendor-Specific (AWS CloudWatch)
 
@@ -175,12 +176,21 @@ Firefly is designed for small companies and projects looking to observe their se
 
 Firefly focuses on a few key areas:
 
+<div class="indent">
+
 #### Serverless Functions
-Firefly is not a complete observability tool covering your entire stack.  We have, however, used open-source, vendor-neutral tools such as OpenTelemetry to ensure Firefly remains extensible, so if a user wished to grow the scope of the project to include other components they could.
+
+Firefly is not a complete observability tool covering your entire stack. We have, however, used open-source, vendor-neutral tools such as OpenTelemetry to ensure Firefly remains extensible, so if a user wished to grow the scope of the project to include other components they could.
+
 #### Node.js AWS Lambda Functions
+
 With AWS being the largest cloud provider we felt it made sense to build out support for its serverless functions first. Node.js was chosen due its popularity, with the plan to extend support to other languages in the future.
+
 #### Metrics and Traces
+
 Metrics and traces provide a comprehensive overview of serverless function health. We determined logs to be too granular for our current use case.
+
+</div>
 
 ### 6.2 Setup
 
@@ -217,7 +227,7 @@ Clicking on a span will show detailed information about that particular point in
 
 ## 7. Architecture {#architecture}
 
-Telemetry systems, such as Firefly, have three main phases within their architecture: emitting, shipping and presentation [10].
+Telemetry systems, such as Firefly, have three main phases within their architecture: emitting, shipping and presentation<sup>[10](#ref_10)</sup>.
 
 The **emitting** phase handles the instrumentation of application code so telemetry data can be generated. The data will have its format and content determined by this phase before it is sent to the shipping phase.
 
@@ -234,6 +244,7 @@ Firefly includes each of these individual phases within its architecture, as can
 The emit phase is split into two different parts, as metrics and traces are not collected and emitted in the same manner.
 
 Trace emission is a two step process:
+
 1. The function must be instrumented to create and emit spans
 2. Spans must be assigned the correct context from upstream services to ensure they can be joined together into a distributed trace–otherwise known as context propagation.
 
@@ -283,7 +294,7 @@ Using the OpenTelemetry collector as the gateway to the shipping phase ensures c
 
 The presentation phase has one aim: retrieve and display data. Firefly uses Grafana–an open-source monitoring solution and visualization tool–in order to present the collected metric and trace data. A number of dashboards specifically focused on serverless functions are pre-built and loaded at start up. While Firefly's dashboards provide all the necessary data to hunt down a serverless function issue, Grafana allows users to add to these dashboards, build their own, or perform ad-hoc queries.
 
-Grafana has the ability to query multiple data types and sources, with different query interfaces for each.  The three most applicable to Firefly are the metrics (Prometheus), traces (Jaeger) and PostgreSQL sources. Firefly pre-loads Grafana with the appropriate configuration for all three sources. This allows users who are more familiar with querying their telemetry data in a certain format to do so. With this, users are able to use the full capabilities of Grafana without sacrificing the convenience of Firefly.
+Grafana has the ability to query multiple data types and sources, with different query interfaces for each. The three most applicable to Firefly are the metrics (Prometheus), traces (Jaeger) and PostgreSQL sources. Firefly pre-loads Grafana with the appropriate configuration for all three sources. This allows users who are more familiar with querying their telemetry data in a certain format to do so. With this, users are able to use the full capabilities of Grafana without sacrificing the convenience of Firefly.
 
 {{< figure src="/assets/presentation-phase.png" alt="Figure 7.7 Presentation phase" caption="Figure 7.7 Presentation phase" >}}
 
@@ -313,7 +324,7 @@ A key hurdle with the pull mechanism was the lack of an HTTP endpoint exposing m
 
 The main advantage of YACE was how specific it allowed us to be; each metric we wished to include could be listed in a configuration file. There were, however, a number of downsides. Using YACE resulted in having to poll an API to receive metric data. This polling caused a domino effect, resulting in increased latency in sending metrics to the collector and the need to manage polling intervals. The management of polling intervals is an important balancing act. Too many calls is wasteful and causes API throttling; making too few adds unnecessary latency.
 
-Looking towards other observability solutions [11], we determined a push based approach would be the better option. Amazon CloudWatch’s metric stream service in conjunction with Amazon Firehose has the ability to aggregate and send metrics to an HTTPS endpoint on a per minute basis only when new data is generated. This ensures we quickly receive data when activity is high, and eliminate wasteful API calls when there is no activity. While there is little ability to specify exactly which Lambda metrics we wanted to receive and a nominal cost is incurred per metric update, this was the better option.
+Looking towards other observability solutions<sup>[11](#ref_11)</sup>, we determined a push based approach would be the better option. Amazon CloudWatch’s metric stream service in conjunction with Amazon Firehose has the ability to aggregate and send metrics to an HTTPS endpoint on a per minute basis only when new data is generated. This ensures we quickly receive data when activity is high, and eliminate wasteful API calls when there is no activity. While there is little ability to specify exactly which Lambda metrics we wanted to receive and a nominal cost is incurred per metric update, this was the better option.
 
 {{< figure src="/assets/push-method.png" alt="Figure 8.2 Push method" caption="Figure 8.2 Push method" >}}
 
@@ -335,7 +346,7 @@ The AWS Distro for OpenTelemetry (ADOT) layer within Firefly’s architecture ac
 
 #### What Actually Happens:
 
-By default, AWS Lambdas and the ADOT layer default to using [AWS X-Ray's context propagation method](https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html) with AWS specific headers; however, those headers are not natively supported by OpenTelemetry. This creates a problem: with the ADOT layer, Lambdas can only parse OpenTelemetry supported context formats while injecting AWS formatted context to outgoing requests. 
+By default, AWS Lambdas and the ADOT layer default to using [AWS X-Ray's context propagation method](https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html) with AWS specific headers; however, those headers are not natively supported by OpenTelemetry. This creates a problem: with the ADOT layer, Lambdas can only parse OpenTelemetry supported context formats while injecting AWS formatted context to outgoing requests.
 
 {{< figure src="/assets/adot-layer-aws-headers.png" alt="Figure 8.5 Default ADOT layer behaviour" caption="Figure 8.5 Default ADOT layer behaviour" >}}
 
@@ -349,7 +360,7 @@ The W3C protocol uses a header called `traceparent` containing the trace ID and 
 
 {{< figure src="/assets/traceparent-header.png" alt="Figure 8.7 traceparent header" caption="Figure 8.7 traceparent header" >}}
 
-By switching propagation methods, OpenTelemetry’s context propagation API is able to look for the presence of the `traceparent` header to parse context appropriately, as well as injecting a new `traceparent` header for outgoing requests. Because it is supported by OpenTelemetry and is vendor neutral, following the protocol was a logical choice for Firefly.      
+By switching propagation methods, OpenTelemetry’s context propagation API is able to look for the presence of the `traceparent` header to parse context appropriately, as well as injecting a new `traceparent` header for outgoing requests. Because it is supported by OpenTelemetry and is vendor neutral, following the protocol was a logical choice for Firefly.
 
 Lambdas are typically invoked through function URLs, HTTP requests to API gateways, the AWS SDK or SQS/SNS messages. They may similarly use those methods to pass events off to other services.
 
@@ -382,13 +393,11 @@ We narrowed the field to three options: Elasticsearch, Amazon Timestream, and Pr
 
 Elasticsearch was a little too heavyweight for our needs, with most of its features simply not being necessary for our use case. While it accepted both trace and metric data as well as supporting OpenTelemetry, it was too broad in its feature set while lacking the specificity we needed. Integration of Elasticsearch would have required more work to set up multiple components to achieve the same results as other alternatives out-of-the-box.
 
-Timestream fell by the wayside in a few key areas in comparison to Promscale. TimescaleDB had 5-175 times the query speed, 6000 times higher inserts and was also up to 220 times cheaper, it was therefore a simple choice [12]. We also wanted to avoid having our pipeline dependent on the AWS cloud. Allowing users to host and own their data anywhere they wanted would allow Firefly to expand to other serverless function platforms without lock-in to a specific cloud provider.
+Timestream fell by the wayside in a few key areas in comparison to Promscale. TimescaleDB had 5-175 times the query speed, 6000 times higher inserts and was also up to 220 times cheaper, it was therefore a simple choice<sup>[12](#ref_12)</sup>. We also wanted to avoid having our pipeline dependent on the AWS cloud. Allowing users to host and own their data anywhere they wanted would allow Firefly to expand to other serverless function platforms without lock-in to a specific cloud provider.
 
 The query language used was also a major deciding factor. Promscale supports queries in SQL, PromQL and Jaeger query. SQL's continued pervasiveness in the industry meant we could support as many engineers as possible right out of the box.
 
-There were a number of tradeoffs we made in choosing Promscale, such as project maturity, TimescaleDB being more CPU hungry, query performance underperforming databases focused solely on one metric type, among others[13]. However, we felt it more than made up for these areas with its refined focus, ease-of-use, ability to store both metric and trace data types, and the strong team surrounding the project.
-
-
+There were a number of tradeoffs we made in choosing Promscale, such as project maturity, TimescaleDB being more CPU hungry, query performance underperforming databases focused solely on one metric type, among others<sup>[13](#ref_13)</sup>. However, we felt it more than made up for these areas with its refined focus, ease-of-use, ability to store both metric and trace data types, and the strong team surrounding the project.
 
 ---
 
@@ -396,34 +405,48 @@ There were a number of tradeoffs we made in choosing Promscale, such as project 
 
 Firefly currently works well for AWS Lambda functions using Node.js, we do however have a number of areas in which we would like to expand Firefly's capabilities, these are:
 
-* Extend language support to Python, Java and Go
-* Provide observability to other serverless function providers such as Microsoft, Google Cloud and Cloudflare
-* Implement metric emission through firefly's lambda layer once OpenTelemetry matures further
-* Improvements to context propagation via an importable library and more user-friendly auto-instrumentation
-* Enable customization of emitted telemetry data
+- Extend language support to Python, Java and Go
+- Provide observability to other serverless function providers such as Microsoft, Google Cloud and Cloudflare
+- Implement metric emission through firefly's lambda layer once OpenTelemetry matures further
+- Improvements to context propagation via an importable library and more user-friendly auto-instrumentation
+- Enable customization of emitted telemetry data
 
 ---
 
 ## 10. References {#references}
 
+- https://stackify.com/telemetry-tutorial/
 
+<div class="references">
 
-* https://stackify.com/telemetry-tutorial/
+<span class="refnum">1</span> <a name="ref_1" /> https://martinfowler.com/articles/microservices.html
 
+<span class="refnum">2</span> <a name="ref_2" /> https://about.gitlab.com/topics/serverless/
 
-[1] https://martinfowler.com/articles/microservices.html
-[2] https://about.gitlab.com/topics/serverless/
-[3] https://www.sumologic.com/blog/microservices-vs-serverless-architecture/
-[4] https://info.honeycomb.io/observability-engineering-oreilly-book-2022
-[5] https://lumigo.io/aws-serverless-ecosystem/understanding-serverless-observability/
-[6] https://www.datadoghq.com/knowledge-center/serverless-architecture/serverless-microservices/
-[7] https://mediatemple.net/blog/cloud-hosting/serverless-benefits-and-challenges/
-[8] https://www.argonaut.dev/blog/observability-comparison-2022
-[9] https://www.honeycomb.io/blog/how-much-should-my-observability-stack-cost
-[10] https://livebook.manning.com/book/software-telemetry/part-1/v-5
-[11] https://newrelic.com/topics/how-to-monitor-prometheus
-[12] https://www.timescale.com/blog/timescaledb-vs-amazon-timestream-6000x-higher-inserts-175x-faster-queries-220x-cheaper/
-[13] https://docs.victoriametrics.com/FAQ.html
+<span class="refnum">3</span> <a name="ref_3" /> https://www.sumologic.com/blog/microservices-vs-serverless-architecture/
+
+<span class="refnum">4</span> <a name="ref_4" /> https://info.honeycomb.io/observability-engineering-oreilly-book-2022
+
+<span class="refnum">5</span> <a name="ref_5" /> https://lumigo.io/aws-serverless-ecosystem/understanding-serverless-observability/
+
+<span class="refnum">6</span> <a name="ref_6" /> https://www.datadoghq.com/knowledge-center/serverless-architecture/serverless-microservices/
+
+<span class="refnum">7</span> <a name="ref_7" /> https://mediatemple.net/blog/cloud-hosting/serverless-benefits-and-challenges/
+
+<span class="refnum">8</span> <a name="ref_8" /> https://www.argonaut.dev/blog/observability-comparison-2022
+
+<span class="refnum">9</span> <a name="ref_9" /> https://www.honeycomb.io/blog/how-much-should-my-observability-stack-cost
+
+<span class="refnum">10</span> <a name="ref_10" /> https://livebook.manning.com/book/software-telemetry/part-1/v-5
+
+<span class="refnum">11</span> <a name="ref_11" /> https://newrelic.com/topics/how-to-monitor-prometheus
+
+<span class="refnum">12</span> <a name="ref_12" /> https://www.timescale.com/blog/timescaledb-vs-amazon-timestream-6000x-higher-inserts-175x-faster-queries-220x-cheaper/
+
+<span class="refnum">13</span> <a name="ref_13" /> https://docs.victoriametrics.com/FAQ.html
+
+</div>
+
 ---
 
 ## Team {#team}

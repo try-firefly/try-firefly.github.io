@@ -7,3 +7,8 @@ theme = 'hyde'
   description = 'Firefly is an observability framework for serverless functions'
   themeColor = "theme-base-0g"
   favicon = "img/favicon.png"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

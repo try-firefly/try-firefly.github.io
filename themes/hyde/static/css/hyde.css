@@ -30,8 +30,9 @@
  */
 
 html {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Mulish', sans-serif;
 }
+
 figcaption {
   font-size: 0.8em;
   text-align: center;
@@ -75,7 +76,8 @@ figcaption {
 .banner-buttons .button {
   margin-top: 1rem;
   border: none;
-  color: #ffffff !important;
+  color: #ffffff  !important;
+  /* color: #ffffff; */
   background-color: #023047;
   padding: 1em;
   border-radius: 3em;
@@ -97,7 +99,7 @@ figcaption {
  *
  * Flexible banner for housing site name, intro, and "footer" content. Starts
  * out above content in mobile and later moves to the side with wider viewports.
- */
+*/
 
 .sidebar {
   text-align: center;
@@ -125,7 +127,7 @@ figcaption {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-family: 'Ubuntu', cursive;
   font-size: 3.25rem;
 }
 
@@ -329,6 +331,20 @@ figcaption {
 .theme-base-0g .content a,
 .theme-base-0g .related-posts li a:hover {
   color: #023047;
+}
+
+.theme-base-0g .content sup a,
+span.refnum {
+  color: #fb8500;
+}
+
+div.indent {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+div.references {
+  line-height: 1;
 }
 
 p a {
