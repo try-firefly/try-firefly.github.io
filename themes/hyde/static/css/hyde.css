@@ -54,7 +54,7 @@ figcaption {
 }
 
 .banner-image {
-  margin-top: 10vh;
+  margin-top: 20vh;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -76,7 +76,7 @@ figcaption {
   margin-top: 1rem;
   border: none;
   color: #ffffff !important;
-  background-color: #218a70;
+  background-color: #023047;
   padding: 1em;
   border-radius: 3em;
   margin-left: 0.2rem;
@@ -144,6 +144,7 @@ figcaption {
   text-decoration: none;
   color: #fb8500;
 }
+
 .sidebar-nav-item.active {
   font-weight: bold;
 }
