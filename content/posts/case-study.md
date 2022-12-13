@@ -36,13 +36,13 @@ A microservices architecture can be composed of services deployed on their own s
 
 **Functions-as-a-Service (FaaS)** describe the cloud-based service that hosts and manages serverless functions. To deploy a serverless function to a FaaS provider, a developer writes code that fulfills a particular purpose in the application and defines an event that will trigger the function<sup>[3](#ref_3)</sup>. Once the event is triggered, the service provider starts a new instance of the function, work is performed, and the result is returned.
 
-{{< figure src="/assets/faas-system.png" alt="Figure 2.3 FaaS system" caption="Figure 2.3 FaaS system" >}}
+{{< figure src="/assets/faas-system.gif" alt="Figure 2.3 FaaS system" caption="Figure 2.3 FaaS system" >}}
 
 As more events are triggered, the FaaS provider is responsible for **automating the provisioning** of computation resources and **horizontally scaling** function instances in response to demand; this eliminates the need for frequent hands-on management.
 
 This is contrary to a system where a service is deployed on a server which the developer has to manage. The server is kept continuously running, ready to respond to any incoming requests. If demand increases more than the server can handle, requests are ultimately refused and scaling will need to happen manually.
 
-{{< figure src="/assets/single-server.png" alt="Figure 2.4 Single server system" caption="Figure 2.4 Single server system" >}}
+{{< figure src="/assets/single-server.gif" alt="Figure 2.4 Single server system" caption="Figure 2.4 Single server system" >}}
 
 FaaS providers only allocate compute resources when required. When demand decreases and the function sits idle, resources are deallocated and functions do not use compute. Serverless functions do not need to reserve and hold computational resources in advance, as in a traditional set up.
 
