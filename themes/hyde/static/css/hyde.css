@@ -351,6 +351,10 @@ p a {
   text-decoration: underline;
 }
 
+ul ul {
+  margin-bottom: 0px;
+}
+
 .github-icon {
   width: 60px;
   height: 60px;

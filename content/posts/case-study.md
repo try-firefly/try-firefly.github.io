@@ -137,7 +137,7 @@ Developers wishing to increase observability of their serverless functions typic
 
 - Software-as-a-Service solutions
 - In-house, vendor-specific solution from FaaS provider
-  - We will be discussing specifically AWS CloudWatch as Firefly currently [only supports AWS Lambdas](#firefly_focus).
+  - We will be discussing specifically AWS CloudWatch as Firefly currently [only supports AWS Lambdas](#firefly_focus)
 - Do-it-yourself (DIY)
 
 ### 5.1 Software-as-a-Service
