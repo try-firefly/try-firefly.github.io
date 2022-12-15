@@ -10,7 +10,7 @@ draft: false
 
 ## 1. Introduction {#introduction}
 
-Serverless functions have become a key part of distributed architectures. Unfortunately, due to their stateless, ephemeral nature they are difficult to observe with standard observability approaches. They can behave like a black box in your system. Firefly is an open-source observability framework for serverless functions. It provides key insights into serverless function health through the use of metrics and traces--illuminating the black box.
+Serverless functions have become a key part of distributed architectures. Unfortunately, due to their stateless, ephemeral nature they are difficult to observe with standard observability approaches. They can behave like a black box in your system. Firefly is an open-source observability framework for serverless functions. It provides key insights into serverless function health through the use of metrics and traces--illuminating the black box..
 
 {{< figure src="/assets/firefly-introduction.png" alt="Figure 1.0 Firefly introduction" caption="Figure 1.0 Firefly introduction" >}}
 
