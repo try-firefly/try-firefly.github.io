@@ -136,7 +136,7 @@ On the other hand, the events which invoke the functions must carry context in a
 Developers wishing to increase observability of their serverless functions typically have three main options:
 
 - Software-as-a-Service solutions
-- In-house, vendor-specific solution from FaaS provider
+- Vendor-specific solution from FaaS provider
   - We will be discussing specifically AWS CloudWatch as Firefly currently [only supports AWS Lambdas](#firefly_focus).
 - Do-it-yourself (DIY)
 
@@ -146,9 +146,9 @@ Software-as-a-service (SaaS) solutions usually require minimal setup to use. Onc
 
 While these vendors provide many benefits to their users, there are some downsides. The first is cost, which may have a greater impact for smaller companies and projects. The lack of visibility and transparency in their pricing can give observability platforms unpredictable and large costs<sup>[8](#ref_8)</sup>; sometimes stretching up to 50% of your total infrastructure costs<sup>[9](#ref_9)</sup>. Another downside is the loss of data control and ownership, as it is all sent to a third party–a deal breaker for businesses that place importance on data privacy and vendor flexibility.
 
-### 5.2 In-House Vendor-Specific (AWS CloudWatch)
+### 5.2 Vendor-Specific (AWS CloudWatch)
 
-Cloud providers are no strangers to the problem of observability. Many provide in-house solutions for users to conveniently gain insight to services deployed within their ecosystem.
+Cloud providers are no strangers to the problem of observability. Many provide solutions for users to conveniently gain insight to services deployed within their ecosystem.
 
 AWS provides [CloudWatch](https://aws.amazon.com/cloudwatch/) as its native observability solution for its serverless functions. The advantage of using CloudWatch is that there is no setup required. Metrics and logs are collected by default, and tracing (via AWS X-Ray) can be enabled through the AWS console for each function you wish to collect trace data for.
 
