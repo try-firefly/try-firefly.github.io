@@ -13,7 +13,7 @@
       <pubDate>Mon, 18 Apr 2022 17:12:09 -0700</pubDate>
       
       <guid>https://try-firefly.github.io/posts/case-study/</guid>
-      <description>Firefly Case Study 1. Introduction Serverless functions have become a key part of distributed architectures. Unfortunately, due to their stateless, ephemeral nature they are difficult to observe with standard observability approaches. They can behave like a black box in your system. Firefly is an open-source observability framework for serverless functions. It provides key insights into serverless function health through the use of metrics and traces&amp;ndash;illuminating the black box..
+      <description>Firefly Case Study 1. Introduction Serverless functions have become a key part of distributed architectures. Unfortunately, due to their stateless, ephemeral nature they are difficult to observe with standard observability approaches. They can behave like a black box in your system. Firefly is an open-source observability framework for serverless functions. It provides key insights into serverless function health through the use of metrics and traces&amp;ndash;illuminating the black box.
 Figure 1.0 Firefly introduction</description>
     </item>
     
