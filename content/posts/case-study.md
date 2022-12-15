@@ -300,7 +300,7 @@ Grafana has the ability to query multiple data types and sources, with different
 
 ### 7.5 Overall Firefly Architecture
 
-{{< figure src="/assets/firefly-architecture.png" alt="Figure 7.8 Firefly Architecture" caption="Figure 7.8 Firefly Architecture" >}}
+{{< figure src="/assets/firefly-architecture.png" alt="Figure 7.8 Firefly architecture" caption="Figure 7.8 Firefly architecture" >}}
 
 Combining all phases creates a complete telemetry system. Each phase had its own challenges and tradeoffs, some of which are discussed in greater detail below.
 
@@ -414,8 +414,6 @@ Firefly currently works well for AWS Lambda functions using Node.js, we do howev
 ---
 
 ## 10. References {#references}
-
-- https://stackify.com/telemetry-tutorial/
 
 <div class="references">
 
