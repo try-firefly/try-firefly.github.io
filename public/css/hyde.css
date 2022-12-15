@@ -1,0 +1,438 @@
+/*
+ *  __                  __
+ * /\ \                /\ \
+ * \ \ \___   __  __   \_\ \     __
+ *  \ \  _ `\/\ \/\ \  /'_` \  /'__`\
+ *   \ \ \ \ \ \ \_\ \/\ \_\ \/\  __/
+ *    \ \_\ \_\/`____ \ \___,_\ \____\
+ *     \/_/\/_/`/___/> \/__,_ /\/____/
+ *                /\___/
+ *                \/__/
+ *
+ * Designed, built, and released under MIT license by @mdo. Learn more at
+ * https://github.com/poole/hyde.
+ */
+
+/*
+ * Contents
+ *
+ * Global resets
+ * Sidebar
+ * Container
+ * Reverse layout
+ * Themes
+ */
+
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+html {
+  font-family: 'Mulish', sans-serif;
+}
+
+figcaption {
+  font-size: 0.8em;
+  text-align: center;
+  padding-bottom: 5px;
+}
+@media (min-width: 48em) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (min-width: 58em) {
+  html {
+    font-size: 18px;
+  }
+}
+
+.whitespace {
+  min-height: 100vh;
+  /* margin-left: 10vw; */
+}
+
+.banner-image {
+  margin-top: 20vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-text {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.banner-buttons .button {
+  margin-top: 1rem;
+  border: none;
+  color: #ffffff  !important;
+  /* color: #ffffff; */
+  background-color: #023047;
+  padding: 1em;
+  border-radius: 3em;
+  margin-left: 0.2rem;
+  text-align: center;
+}
+
+@media (min-width: 500px) {
+  .banner-buttons .button {
+    font-size: medium;
+    padding: 1em;
+    margin-left: 1rem;
+    color: #ffffff;
+  }
+}
+
+/*
+ * Sidebar
+ *
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
+*/
+
+.sidebar {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: #202020;
+}
+@media (min-width: 48em) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 22rem;
+    text-align: left;
+  }
+}
+
+/* Sidebar links */
+.sidebar a {
+  color: #fff;
+}
+
+/* About section */
+.sidebar-about h1 {
+  color: #fff;
+  margin-top: 0;
+  font-family: 'Ubuntu', cursive;
+  font-size: 3.25rem;
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+  padding-left: 0;
+  list-style: none;
+  line-height: 1.5;
+}
+.sidebar-nav-item {
+  display: block;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a:focus {
+  text-decoration: none;
+  color: #fb8500;
+}
+
+.sidebar-nav-item.active {
+  font-weight: bold;
+}
+
+.sidebar-about h1:hover,
+.sidebar-about h1:focus {
+  text-decoration: none;
+  color: #fb8500;
+}
+
+.firefly-icon {
+  max-width: 50%;
+  margin: auto;
+}
+
+/* Sticky sidebar
+ *
+ * Add the `sidebar-sticky` class to the sidebar's container to affix it the
+ * contents to the bottom of the sidebar in tablets and up.
+ */
+
+@media (min-width: 48em) {
+  .sidebar-sticky {
+    position: absolute;
+    right: 1rem;
+    bottom: 3rem;
+    left: 1rem;
+  }
+
+  .firefly-icon {
+    max-width: 50%;
+    margin: 0;
+  }
+}
+
+/* Container
+ *
+ * Align the contents of the site above the proper threshold with some margin-fu
+ * with a 25%-wide `.sidebar`.
+ */
+
+.content {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 48em) {
+  .content {
+    max-width: 55rem;
+    margin-left: 24rem;
+    margin-right: 2rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .content {
+    margin-left: 26rem;
+    margin-right: 4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .content {
+    padding-right: 50px;
+  }
+
+  .github_icon {
+    right: 20px;
+    width: 25px;
+  }
+}
+
+/*
+ * Reverse layout
+ *
+ * Flip the orientation of the page by placing the `.sidebar` on the right.
+ */
+
+@media (min-width: 48em) {
+  .layout-reverse .sidebar {
+    left: auto;
+    right: 0;
+  }
+  .layout-reverse .content {
+    margin-left: 2rem;
+    margin-right: 20rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .layout-reverse .content {
+    margin-left: 4rem;
+    margin-right: 22rem;
+  }
+}
+
+/*
+ * Themes
+ *
+ * As of v1.1, Hyde includes optional themes to color the sidebar and links
+ * within blog posts. To use, add the class of your choosing to the `body`.
+ */
+
+/* Base16 (http://chriskempson.github.io/base16/#default) */
+
+/* Red */
+.theme-base-08 .sidebar {
+  background-color: #ac4142;
+}
+.theme-base-08 .content a,
+.theme-base-08 .related-posts li a:hover {
+  color: #ac4142;
+}
+
+/* Orange */
+.theme-base-09 .sidebar {
+  background-color: #d28445;
+}
+.theme-base-09 .content a,
+.theme-base-09 .related-posts li a:hover {
+  color: #d28445;
+}
+
+/* Yellow */
+.theme-base-0a .sidebar {
+  background-color: #f4bf75;
+}
+.theme-base-0a .content a,
+.theme-base-0a .related-posts li a:hover {
+  color: #f4bf75;
+}
+
+/* Green */
+.theme-base-0b .sidebar {
+  background-color: #90a959;
+}
+.theme-base-0b .content a,
+.theme-base-0b .related-posts li a:hover {
+  color: #90a959;
+}
+
+/* Cyan */
+.theme-base-0c .sidebar {
+  background-color: #75b5aa;
+}
+.theme-base-0c .content a,
+.theme-base-0c .related-posts li a:hover {
+  color: #75b5aa;
+}
+
+/* Blue */
+.theme-base-0d .sidebar {
+  background-color: #6a9fb5;
+}
+.theme-base-0d .content a,
+.theme-base-0d .related-posts li a:hover {
+  color: #6a9fb5;
+}
+
+/* Magenta */
+.theme-base-0e .sidebar {
+  background-color: #aa759f;
+}
+.theme-base-0e .content a,
+.theme-base-0e .related-posts li a:hover {
+  color: #aa759f;
+}
+
+/* Brown */
+.theme-base-0f .sidebar {
+  background-color: #8f5536;
+}
+.theme-base-0f .content a,
+.theme-base-0f .related-posts li a:hover {
+  color: #8f5536;
+}
+
+/* Firefly */
+.theme-base-0g .sidebar {
+  background-color: #023047;
+}
+.theme-base-0g .content a,
+.theme-base-0g .related-posts li a:hover {
+  color: #023047;
+}
+
+.theme-base-0g .content sup a,
+span.refnum {
+  color: #fb8500;
+}
+
+div.indent {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+div.references {
+  line-height: 1;
+}
+
+p a {
+  text-decoration: underline;
+}
+
+.github-icon {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 30px;
+  bottom: 10px;
+}
+
+#team > ul {
+  padding: 40px 0 40px 0;
+  text-align: center;
+}
+
+#team li {
+  display: inline-block;
+  /* margin: 0 3%; */
+  vertical-align: top;
+}
+
+#team li {
+  width: 22%;
+}
+
+#team h3 {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+#team a {
+  color: #282828;
+  text-decoration: none;
+}
+
+@media (max-width: 550px) {
+  #team .team-members {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #team .individual .portrait {
+    border-radius: 100%;
+    margin: 20px auto 20px;
+  }
+}
+
+#team .team-members {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#team .individual .portrait {
+  border-radius: 100%;
+  /* margin: 0 auto 20px; */
+  padding: 0.5rem;
+  /* width: 10vw; */
+
+  /* max-width: 10vw; */
+}
+
+#team .individual p {
+  font-size: 0.8rem;
+}
+
+/* li.raul {
+  min-width: 130px;
+} */
+
+#team .icon-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#team .individual .icon {
+  border-radius: 0%;
+  min-width: 20px;
+  max-width: 20px;
+  margin: 0px 5px;
+
+  /* margin-left: 27px;
+  margin-right: 5px; */
+}
