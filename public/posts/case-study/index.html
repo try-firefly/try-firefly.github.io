@@ -268,15 +268,33 @@
 </ul>
 <h3 id="51-software-as-a-service">5.1 Software-as-a-Service</h3>
 <p>Software-as-a-service (SaaS) solutions usually require minimal setup to use. Once you have an account they will generally provide code and processes to manually instrument your functions or set up auto-instrumentation. These vendors normally have an extensive feature set, encompassed in a central UI, that goes well beyond serverless functions. They will also manage the data pipeline, so scaling for increased load does not have to be taken into account.</p>
+<figure class="center"><img src="/assets/saas-logos.png"
+         alt="Figure 5.0 Logos of existing Software-as-a-Service solutions"/><figcaption>
+            <p>Figure 5.0 Logos of existing Software-as-a-Service solutions</p>
+        </figcaption>
+</figure>
+
 <p>While these vendors provide many benefits to their users, there are some downsides. The first is cost, which may have a greater impact for smaller companies and projects. The lack of visibility and transparency in their pricing can give observability platforms unpredictable and large costs<sup><a href="#ref_8">8</a></sup>; sometimes stretching up to 50% of your total infrastructure costs<sup><a href="#ref_9">9</a></sup>. Another downside is the loss of data control and ownership, as it is all sent to a third party–a deal breaker for businesses that place importance on data privacy and vendor flexibility.</p>
 <h3 id="52-vendor-specific-aws-cloudwatch">5.2 Vendor-Specific (AWS CloudWatch)</h3>
-<p>Cloud providers are no strangers to the problem of observability. Many provide solutions for users to conveniently gain insight to services deployed within their ecosystem.</p>
+<figure class="inline"><img src="/assets/cloudwatch-logo.png"
+         alt="Figure 5.1 Amazon CloudWatch" width="100px"/><figcaption>
+            <p>Figure 5.1 Amazon CloudWatch</p>
+        </figcaption>
+</figure>
+
+<p>Cloud providers are no strangers to the problem of observability. Many provide in-house solutions for users to conveniently gain insight to services deployed within their ecosystem.</p>
 <p>AWS provides <a href="https://aws.amazon.com/cloudwatch/">CloudWatch</a> as its native observability solution for its serverless functions. The advantage of using CloudWatch is that there is no setup required. Metrics and logs are collected by default, and tracing (via AWS X-Ray) can be enabled through the AWS console for each function you wish to collect trace data for.</p>
 <p>Despite being easy to set up, CloudWatch has numerous disadvantages. Like SaaS solutions, billing can be unpredictable and confusing, with separate billing for a variety of things such as queries, events, dashboards, data volume, and alarms. It can therefore quickly become difficult to track exactly how much you will be subsequently charged and where those charges have stemmed from.</p>
 <p>CloudWatch offers no global overview of your telemetry data, with each telemetry type being separated into its own dashboard. Being able to make associations between different types of telemetry data make it easier to diagnose potential problems; using CloudWatch means you have to switch between dashboards to do this, adding unnecessary friction.</p>
 <p>Using CloudWatch also means your observability data is siloed within AWS, which makes extracting it more difficult as you do not have full control over it. This is problematic if a system also contains non-AWS hosted services, as observability data across the whole system cannot be cohesively accessed from a single source. To get a picture of your overall system health each component needs to be observable, having one solution that is able to incorporate your entire architecture starts to become paramount.</p>
 <h3 id="53-diy">5.3 DIY</h3>
 <p>A do-it-yourself solution can alleviate many of the issues seen with a SaaS provider. Open-source tools such as OpenTelemetry can be used to receive, process, and emit telemetry data. Using a DIY solution provides the greatest amount of freedom, as you can choose exactly how you want to setup your system and have full control over the data emitted. This not only keeps usage costs down but provides much better control. The one major downside of a DIY approach is the sheer amount of work it takes to setup. There is a considerable amount of prior research that needs to be undertaken. Then, once done, there could be weeks or months of work required to perfect your chosen setup.</p>
+<figure class="center"><img src="/assets/back-door-lockin.png"
+         alt="Figure 5.2 DIY solution cartoon" width="500px"/><figcaption>
+            <p>Figure 5.2 DIY solution cartoon (<a href="https://www.goodtechthings.com/backdoor-lock/">source: Good Tech Things</a>)</p>
+        </figcaption>
+</figure>
+
 <hr>
 <h2 id="introducing_firefly">6. Introducing Firefly</h2>
 <p>Firefly is an open-source observability framework for serverless functions. It provides key insights into serverless function health through the use of metrics and traces. Firefly automates function instrumentation and the deployment of a telemetry pipeline, ultimately presenting your function data in an easy-to-use dashboard.</p>
