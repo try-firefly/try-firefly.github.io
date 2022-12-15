@@ -1,7 +1,7 @@
 ---
 title: "Firefly case study"
 date: 2022-04-18T17:12:09-07:00
-draft: true
+draft: false
 ---
 
 # Firefly Case Study {#case_study}
@@ -136,8 +136,8 @@ On the other hand, the events which invoke the functions must carry context in a
 Developers wishing to increase observability of their serverless functions typically have three main options:
 
 - Software-as-a-Service solutions
-- In-house, vendor-specific solution from FaaS provider
-  - We will be discussing specifically AWS CloudWatch as Firefly currently [only supports AWS Lambdas](#firefly_focus)
+- Vendor-specific solution from FaaS provider
+  - We will be discussing specifically AWS CloudWatch as Firefly currently [only supports AWS Lambdas](#firefly_focus).
 - Do-it-yourself (DIY)
 
 ### 5.1 Software-as-a-Service
@@ -148,7 +148,7 @@ Software-as-a-service (SaaS) solutions usually require minimal setup to use. Onc
 
 While these vendors provide many benefits to their users, there are some downsides. The first is cost, which may have a greater impact for smaller companies and projects. The lack of visibility and transparency in their pricing can give observability platforms unpredictable and large costs<sup>[8](#ref_8)</sup>; sometimes stretching up to 50% of your total infrastructure costs<sup>[9](#ref_9)</sup>. Another downside is the loss of data control and ownership, as it is all sent to a third party–a deal breaker for businesses that place importance on data privacy and vendor flexibility.
 
-### 5.2 In-House Vendor-Specific (AWS CloudWatch)
+### 5.2 Vendor-Specific (AWS CloudWatch)
 
 {{< figure class="inline" src="/assets/cloudwatch-logo.png" alt="Figure 5.1 Amazon CloudWatch" caption="Figure 5.1 Amazon CloudWatch" width="100px" >}}
 
@@ -306,7 +306,7 @@ Grafana has the ability to query multiple data types and sources, with different
 
 ### 7.5 Overall Firefly Architecture
 
-{{< figure src="/assets/firefly-architecture.png" alt="Figure 7.8 Firefly Architecture" caption="Figure 7.8 Firefly Architecture" >}}
+{{< figure src="/assets/firefly-architecture.png" alt="Figure 7.8 Firefly architecture" caption="Figure 7.8 Firefly architecture" >}}
 
 Combining all phases creates a complete telemetry system. Each phase had its own challenges and tradeoffs, some of which are discussed in greater detail below.
 
@@ -420,8 +420,6 @@ Firefly currently works well for AWS Lambda functions using Node.js, we do howev
 ---
 
 ## 10. References {#references}
-
-- https://stackify.com/telemetry-tutorial/
 
 <div class="references">
 
