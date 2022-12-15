@@ -144,9 +144,13 @@ Developers wishing to increase observability of their serverless functions typic
 
 Software-as-a-service (SaaS) solutions usually require minimal setup to use. Once you have an account they will generally provide code and processes to manually instrument your functions or set up auto-instrumentation. These vendors normally have an extensive feature set, encompassed in a central UI, that goes well beyond serverless functions. They will also manage the data pipeline, so scaling for increased load does not have to be taken into account.
 
+{{< figure class="center" src="/assets/saas-logos.png" alt="Figure 5.0 Logos of existing Software-as-a-Service solutions" caption="Figure 5.0 Logos of existing Software-as-a-Service solutions" >}}
+
 While these vendors provide many benefits to their users, there are some downsides. The first is cost, which may have a greater impact for smaller companies and projects. The lack of visibility and transparency in their pricing can give observability platforms unpredictable and large costs<sup>[8](#ref_8)</sup>; sometimes stretching up to 50% of your total infrastructure costs<sup>[9](#ref_9)</sup>. Another downside is the loss of data control and ownership, as it is all sent to a third party–a deal breaker for businesses that place importance on data privacy and vendor flexibility.
 
 ### 5.2 In-House Vendor-Specific (AWS CloudWatch)
+
+{{< figure class="inline" src="/assets/cloudwatch-logo.png" alt="Figure 5.1 Amazon CloudWatch" caption="Figure 5.1 Amazon CloudWatch" width="100px" >}}
 
 Cloud providers are no strangers to the problem of observability. Many provide in-house solutions for users to conveniently gain insight to services deployed within their ecosystem.
 
@@ -161,6 +165,8 @@ Using CloudWatch also means your observability data is siloed within AWS, which 
 ### 5.3 DIY
 
 A do-it-yourself solution can alleviate many of the issues seen with a SaaS provider. Open-source tools such as OpenTelemetry can be used to receive, process, and emit telemetry data. Using a DIY solution provides the greatest amount of freedom, as you can choose exactly how you want to setup your system and have full control over the data emitted. This not only keeps usage costs down but provides much better control. The one major downside of a DIY approach is the sheer amount of work it takes to setup. There is a considerable amount of prior research that needs to be undertaken. Then, once done, there could be weeks or months of work required to perfect your chosen setup.
+
+{{< figure class="center" src="/assets/back-door-lockin.png" alt="Figure 5.2 DIY solution cartoon" caption="Figure 5.2 DIY solution cartoon ([source: Good Tech Things](https://www.goodtechthings.com/backdoor-lock/))" width="500px">}}
 
 ---
 
