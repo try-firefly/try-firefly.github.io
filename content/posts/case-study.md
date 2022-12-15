@@ -1,7 +1,7 @@
 ---
 title: "Firefly case study"
 date: 2022-04-18T17:12:09-07:00
-draft: true
+draft: false
 ---
 
 # Firefly Case Study {#case_study}
