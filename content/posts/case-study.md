@@ -40,12 +40,7 @@ A microservices architecture can be composed of services deployed on their own s
 
 As more events are triggered, the FaaS provider is responsible for **automating the provisioning** of computation resources and **horizontally scaling** function instances in response to demand; this eliminates the need for frequent hands-on management.
 
-This is contrary to a system where a service is deployed on a server which the developer has to manage. The server is kept continuously running, ready to respond to any incoming requests. If demand increases more than the s1 - 1st interview request received
-Jan 13 - HR screen with Cynthia Coulis (Talent lead, Wavelo)
-
-    Relatively positive, seemed like Cynthia liked me
-    Posting team looking for 2+ of production experience shipping code so I don't quite fit but Cynthia identified two other teams that may be a fit (site reliability, Ruby-based product team).  She's going to try to get me an interview with the Ruby team (SRE team not looking for people at the moment, Ruby-based team more likely)
-    Cynthia sent names/LinkedIn profile for key members of SRE and Ruby-based teams at Wavelo as well as a SWE workin
+This is contrary to a system where a service is deployed on a server which the developer has to manage. The server is kept continuously running, ready to respond to any incoming requests. If demand increases more than the server can handle, requests are ultimately refused and scaling will need to happen manually.
 
 {{< figure src="/assets/single-server.gif" alt="Figure 2.4 Single server system" caption="Figure 2.4 Single server system" >}}
 
